@@ -1,0 +1,134 @@
+# Configuration file for full_eval_normative_suite.py
+# Adjusted paths for ukb_rap_bundle structure
+
+# Model selection
+backbone: both  # Options: mlp, saint, both
+
+# GAMLSS baseline options
+run_gamlss_baseline: true
+gamlss_only: false
+gamlss_family: SHASH
+gamlss_mu_formula: "~ cs(age, df=3) + cov2"
+gamlss_sigma_formula: "~ cs(age, df=3) + cov2"
+gamlss_nu_formula: "~ cs(age, df=3) + cov2"
+gamlss_tau_formula: "~ cs(age, df=3) + cov2"
+gamlss_samples_per_grid: 512
+gamlss_n_cyc: 100
+gamlss_c_crit: 0.001
+gamlss_trace_fit: true
+
+# Data paths (adjusted for bundle structure)
+csv_path: null
+train_csv: data/ukb_idps_all_dates_20idps_train.csv
+holdout_csv: data/ukb_idps_all_dates_20idps_holdout.csv
+train_csv_map: data/train_csv_map.json
+holdout_csv_map: data/holdout_csv_map.json
+min_age: 55
+max_age: 75
+split_ratio: 0.8
+split_seed: 42
+save_splits_dir: data
+
+# Synthetic dataset
+synth_csv: data/dataset_11.csv
+synth_split_ratio: 0.8
+synth_split_seed: 42
+synth_min_age: null
+synth_max_age: null
+
+# Covariate configuration
+ukb_cov2_col: sex
+synth_cov2_col: state
+
+# Diffusion parameters
+num_steps: 100
+beta_start: 0.000002
+beta_end: 0.6
+
+# MLP denoiser architecture
+denoiser_depth: 8
+denoiser_width: 384
+denoiser_dropout: 0.1
+
+# SAINT architecture
+d_model: 160
+depth: 5
+n_heads: 8
+row_interval: -4
+
+# Training configuration
+run_group: bundle_test_run
+run_id: both
+epochs: 1500
+mlp_epochs: 1500
+saint_epochs: 600
+mlp_lr: 0.001
+saint_lr: 0.0003
+mlp_batch_size: 1024
+saint_batch_size: 1024
+batch_size: null
+device: cuda:0
+skip_if_exists: false
+eval_checkpoint: final
+checkpoint_path: null
+
+# Sampling
+num_samples: 1000
+times_to_sample: 200
+
+# Evaluation
+label_col: null
+positive_class: 1
+eval_pit: true
+eval_coverage_curve: true
+eval_nn_mem: true
+
+# Joint analysis
+joint_analysis: true
+joint_rows_per_page: 10
+joint_bins: 15
+joint_standardize_axes: true
+joint_log_scale: false
+joint_max_samples_per_group: 5000
+joint_num_permutations: 0
+joint_random_state: 2
+joint_n_jobs: 24
+joint_color_quantile: 0.995
+
+# Marginal product analysis
+marginal_product_analysis: true
+disable_permutation_tests: true
+stat_overlay_kde: false
+
+# Pair-of-pair analysis
+pair_density_shape_corr: true
+pair_bins: 15
+pair_standardize_axes: true
+pair_max_samples_per_pair: 3000
+pair_random_state: 2
+pair_n_jobs: 24
+pair_mantel: true
+pair_idp_limit: 20
+
+# ACE and metrics
+ace_percentiles: "0.02,0.25,0.5,0.75,0.98"
+ace_lowess_frac: 0.2
+ace_use_smoothing: false
+save_plots_dpi: 200
+
+# KS test options
+ks_perm_per_bin: true
+ks_perm_B: 500
+
+# Learning curves and dimensional scaling
+run_learning_curves: true
+train_fracs: "0.1,0.25,0.5,1.0"
+num_seeds: 1
+bootstrap_B: 500
+run_dim_scaling: true
+idp_sizes: "2,20,100,200"
+global_seed: 2
+
+# Product-of-marginals baseline
+baseline_resample_repeats: 1
+

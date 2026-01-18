@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+build/
+dist/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Local environment / editor
+.env
+.venv/
+.idea/
+.vscode/
+
+# UKB + synthetic datasets (not distributed in this repo)
+data/*.csv
+data/*.tsv
+data/*.parquet
+data/*.feather
+data/*.h5
+data/*.hdf5
+data/*.npy
+data/*.npz
+data/*.pkl
+data/*.pickle
+data/*.zip
+
+# Generated artefacts (can be very large)
+results_full_eval/
+**/results_full_eval/
+
+# Model checkpoints (also covered by results_full_eval/, but keep explicit)
+*.pt
+*.pth
+*.ckpt
+
+# OS cruft
+.DS_Store
+
