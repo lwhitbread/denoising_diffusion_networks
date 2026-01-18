@@ -97,7 +97,7 @@ This release keeps the historical output layout used during development on RAP:
 - `--results_dir` specifies the directory that will contain `results_full_eval/`
 - By default, `--results_dir` points to the **parent** of this repo directory (matching the original `ukb_rap/` layout)
 
-If you want outputs *inside* this repo folder instead, run with:
+If you want outputs *inside* this repo folder instead, run with: 
 
 ```bash
 python full_eval_normative_suite.py --config config.yaml --results_dir .
