@@ -9,12 +9,6 @@ dist/
 # Notebooks
 .ipynb_checkpoints/
 
-# Local environment / editor
-.env
-.venv/
-.idea/
-.vscode/
-
 # UKB + synthetic datasets (not distributed in this repo)
 data/*.csv
 data/*.tsv
@@ -36,7 +30,4 @@ results_full_eval/
 *.pt
 *.pth
 *.ckpt
-
-# OS cruft
-.DS_Store
 
